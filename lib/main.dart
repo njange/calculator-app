@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calculator',
       theme: ThemeData.dark(),
-      home: CalculatorScreen(),
+      home: const CalculatorScreen(),
     );
   }
 }
