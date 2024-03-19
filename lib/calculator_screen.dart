@@ -1,3 +1,4 @@
+import 'package:calculator/button_values.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -15,32 +16,41 @@ class _CalcutorScreenState extends State<CalculatorScreen> {
     return const Scaffold(
       body: SafeArea(
         bottom: false,
-        child: Column(children: [
-          //output display
-          Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                alignment: Alignment.bottomRight,
-                padding: EdgeInsets.all(16),
-                child: Text(
-                  "000000",
-                  style: TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
+        child: Column(
+          children: [
+            //output display
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                  alignment: Alignment.bottomRight,
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                    "000000",
+                    style: TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.end,
                   ),
-                  textAlign: TextAlign.end,
                 ),
               ),
             ),
-          ),
-          //buttons
-          Wrap(
-            children: [],
-          )
-        ],
+            //buttons
+            Wrap(
+              children: Btn.button_values
+                  .map(
+                    (value) => buildButton(value),
+                  )
+                  .toList(),
+            )
+          ],
         ),
       ),
-
+      
     );
+  }
+
+  Widget buildButton(value) {
+    return Text(value);
   }
 }
