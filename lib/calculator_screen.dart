@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -12,28 +13,34 @@ class _CalcutorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body:SafeArea(
+      body: SafeArea(
         bottom: false,
-        child:Column(
-          children: [
-            Container(
-              alignment: Alignment.bottomRight,
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                //output display
-                "00000000000000",
-                style: const TextStyle(
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+        child: Column(children: [
+          //output display
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                alignment: Alignment.bottomRight,
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  "000000",
+                  style: TextStyle(
+                    fontSize: 48,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.end,
                 ),
-                textAlign: TextAlign.end,
               ),
             ),
-        //button grid
-      ],
-      )
-      )
+          ),
+          //buttons
+          Wrap(
+            children: [],
+          )
+        ],
+        ),
+      ),
+
     );
   }
 }
